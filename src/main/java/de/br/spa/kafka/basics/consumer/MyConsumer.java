@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 @Slf4j
 public class MyConsumer {
-    @KafkaListener(topics = "${app.topic.name}")
+    @KafkaListener(topics = "${app.topic.name}", groupId = "group1")
     public void receive1(@Payload String data) {
         log.info("Received message='{}'", data);
     }
